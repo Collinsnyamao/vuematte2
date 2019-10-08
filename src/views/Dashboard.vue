@@ -74,12 +74,13 @@
       return {
           dropzoneOptions: {
               url: 'http://127.0.0.1:3000/filecheck',
-              thumbnailWidth: 150,
+              thumbnailWidth: 100,
+              thumbnailHeight:50,
               maxFilesize: 10,
               headers: { "My-Awesome-Header": "header value" },
               includeStyling: true,
               duplicateCheck: true,
-              uploadMultiple: true,
+              uploadMultiple: false,
               retryChunks: true,
               paramName: 'file',
               autoProcessQueue: false,
@@ -241,7 +242,6 @@
       },
         afterComplete(file) {
             /*console.log(file);*/
-            document.getElementById('filenameTag').innerHTML = 'sweet ' + file.name;
         },
       addComplete (filename) {
 
@@ -250,12 +250,12 @@
         successF(file,response){
 
           console.log(file,response);
-          this.files.push({name:file.name,status:file.status});
+          this.files.unshift({name:file.name,status:file.status});
         },
         errorF(file,message,xhr){
 
             console.log(file,response);
-            this.files.push({name:file.name,status:file.status});
+            this.files.unshift({name:file.name,status:file.status});
         },
         onadd(file){
             document.getElementById('shower').innerText = 'sweet ' + file.filename;
