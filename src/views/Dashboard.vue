@@ -76,7 +76,7 @@
               url: 'http://127.0.0.1:3000/filecheck',
               thumbnailWidth: 100,
               thumbnailHeight:50,
-              maxFilesize: 10,
+              maxFilesize: 1000,
               headers: { "My-Awesome-Header": "header value" },
               includeStyling: true,
               duplicateCheck: true,
